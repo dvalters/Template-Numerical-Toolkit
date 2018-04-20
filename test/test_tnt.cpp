@@ -1,4 +1,4 @@
-#include <tnt.hpp>
+#include <../include/tnt.hpp>
 #define CATCH_CONFIG_MAIN
 #include <catch.hpp>
 
