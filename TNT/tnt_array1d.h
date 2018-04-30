@@ -62,7 +62,8 @@ class Array1D
 	explicit Array1D(int n);
 	         Array1D(int n, const T &a);
 	         Array1D(int n,  T *a);
-    inline   Array1D(const Array1D &A);
+           Array1D(int n, const T *a);
+  inline   Array1D(const Array1D &A);
 	inline   operator T*();
 	inline   operator const T*();
 	inline   Array1D & operator=(const T &a);
@@ -124,6 +125,14 @@ Array1D<T>::Array1D(int n, T *a) : v_(a), n_(n) , data_(v_.begin())
 {
 #ifdef TNT_DEBUG
 	std::cout << "Created Array1D(int n, T* a) \n";
+#endif
+}
+
+template <class T>
+Array1D<T>::Array1D(int n, const T *a) : v_(a), n_(n), data_(v_.begin())
+{
+#ifndef TNT_DEBUG
+  std::cout << "Created Array1D(int n, const T* a) \n";
 #endif
 }
 
